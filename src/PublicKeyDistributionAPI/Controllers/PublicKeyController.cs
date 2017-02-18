@@ -17,17 +17,6 @@ namespace PublicKeyDistributionAPI.Controllers
             _publicKeyRepository = publicKeyRepository;
         }
 
-        [HttpGet("byId")]
-        public IActionResult GetById(int id)
-        {
-            var item = _publicKeyRepository.Find(id);
-            if (item == null)
-            {
-                return NotFound();
-            }
-            return new ObjectResult(item);
-        }
-
         [HttpGet("byUser")]
         public IActionResult GetByUser(string user)
         {
@@ -47,9 +36,17 @@ namespace PublicKeyDistributionAPI.Controllers
                 return BadRequest();
             }
 
-            _publicKeyRepository.Add(pk);
+           Boolean response =  _publicKeyRepository.Add(pk);
 
-            return new StatusCodeResult(200);
+            if (response == true)
+            {
+                return new StatusCodeResult(200);
+            }
+            else
+            {
+                return new StatusCodeResult(400);
+            }
+
         }
 
     }

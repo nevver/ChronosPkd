@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.ComponentModel.DataAnnotations;
 
 namespace PublicKeyDistributionAPI.Models
 {
     public class PublicKey
     {
-        public int id { get; set; }
+        [Key]
         public string user { get; set; }
         public string key { get; set; }
     }

@@ -8,6 +8,7 @@ namespace PublicKeyDistributionAPI.Models
     public class PublicKeyRepository : IPublicKeyRepository
     {
         private readonly PublicKeyContext _context;
+        private string _user;
 
         public PublicKeyRepository(PublicKeyContext context)
         {
@@ -18,16 +19,23 @@ namespace PublicKeyDistributionAPI.Models
                 key = "23j4k32m4e4oimd43idm3i"}
                 );
         }
-        public void Add(PublicKey pk)
+        public Boolean Add(PublicKey pk)
         {
-            _context.PublicKeys.Add(pk);
-            _context.SaveChanges();
+            _user = pk.user;
+            if (Find(_user) == null)
+            {
+                _context.PublicKeys.Add(pk);
+                _context.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
         }
 
-        public PublicKey Find(int id)
-        {
-            return _context.PublicKeys.FirstOrDefault(u => u.id == id);
-        }
+
         public PublicKey Find(string user)
         {
             return _context.PublicKeys.FirstOrDefault(u => u.user == user);

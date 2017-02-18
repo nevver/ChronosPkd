@@ -7,8 +7,7 @@ namespace PublicKeyDistributionAPI.Models
 {
     public interface IPublicKeyRepository
     {
-        void Add(PublicKey pk);
-        PublicKey Find(int id);
+        Boolean Add(PublicKey pk);
         PublicKey Find(string user);
     }
 }
