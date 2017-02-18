@@ -4,9 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PublicKeyDistributionAPI.Models;
+
 
 namespace PublicKeyDistributionAPI
 {
@@ -37,7 +40,12 @@ namespace PublicKeyDistributionAPI
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
+            services.AddDbContext<PublicKeyContext>(opt => opt.UseInMemoryDatabase());
+
+            // Add framework services.
             services.AddMvc();
+
+            services.AddSingleton<IPublicKeyRepository, PublicKeyRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
