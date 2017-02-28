@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PublicKeyDistributionAPI.Models;
-
+using MySQL.Data.EntityFrameworkCore.Extensions;
 
 namespace PublicKeyDistributionAPI
 {
@@ -41,7 +41,10 @@ namespace PublicKeyDistributionAPI
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            services.AddDbContext<PublicKeyContext>(opt => opt.UseInMemoryDatabase());
+            services.AddDbContext<PublicKeyContext>(opt =>
+            {
+                opt.UseMySQL(Configuration.GetConnectionString("AWSConnection"));
+            });
 
             // Add framework services.
             services.AddMvc();
