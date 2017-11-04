@@ -2,7 +2,7 @@
 ====
 ASP.NET PKD API. <br />
 The accompanying Ruby on Rails RESTful web messenger API is https://github.com/nevver/ChronosApi. <br />
-
+The UWP client repo is  https://github.com/nevver/chronosclient. <br>
 
 **Register a Public Key**
 ----
