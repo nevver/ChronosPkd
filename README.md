@@ -1,6 +1,6 @@
 **Chronos Public Key Distribution API ![icon](https://github.com/nevver/ChronosClient/blob/master/ChronosClient/Assets/Square44x44Logo.targetsize-24_altform-unplated.png?raw=true)**
 ====
-ASP.NET PKD API. <br />
+ASP.NET RESTful web API for public key distribution.  <br />
 The accompanying Ruby on Rails RESTful web messenger API is https://github.com/nevver/ChronosApi. <br />
 The UWP client repo is  https://github.com/nevver/chronosclient. <br>
 
