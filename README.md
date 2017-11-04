@@ -1,7 +1,7 @@
 **Chronos Public Key Distribution API ![icon](https://github.com/nevver/ChronosClient/blob/master/ChronosClient/Assets/Square44x44Logo.targetsize-24_altform-unplated.png?raw=true)**
 ====
-ASP.NET PKD API hosted at https://chronoskeys.co. <br />
-The server is currently graded `A` by <a href="https://www.ssllabs.com/ssltest/analyze.html?d=chronoskeys.co&hideResults=on">Qualys SSL Labs</a>. <br>
+ASP.NET PKD API<br />
+The accompanying Ruby on Rails RESTful web messenger API is https://github.com/nevver/ChronosApi <br />
 
 
 **Register a Public Key**
